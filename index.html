@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Presença - Almoço com CEO | VIDI</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1a1a1a;
+            --accent-gold: #c5a059;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --border-gray: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Georgia, serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-gray);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+
+        .logo-area {
+            margin-bottom: 30px;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            letter-spacing: 7px;
+            font-weight: bold;
+            color: var(--text-white);
+            text-transform: uppercase;
+        }
+
+        .logo-sub {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        h1 {
+            font-size: 22px;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .detalhes-box {
+            background-color: #151515;
+            border: 1px solid #252525;
+            padding: 20px;
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .detalhes-box strong {
+            color: var(--accent-gold);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+
+        label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+        }
+
+        input {
+            background-color: #222;
+            border: 1px solid var(--border-gray);
+            padding: 12px;
+            color: var(--text-white);
+            font-size: 16px;
+            border-radius: 2px;
+            transition: border-color 0.3s;
+            font-family: Arial, sans-serif;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .btn {
+            background-color: var(--accent-gold);
+            color: #000;
+            border: none;
+            padding: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        .btn:hover {
+            background-color: #dfb56c;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .success-box {
+            display: none;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .success-box h2 {
+            color: var(--accent-gold);
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .success-box p {
+            color: var(--text-gray);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn-agenda {
+            display: inline-block;
+            text-decoration: none;
+            background-color: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 15px 30px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-agenda:hover {
+            background-color: var(--accent-gold);
+            color: #000;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-area">
+            <div class="logo-text">VIDI</div>
+            <div class="logo-sub">Ver antes de vencer</div>
+        </div>
+
+        <div id="registration-block">
+            <h1>Almoço com CEO</h1>
+
+            <div class="detalhes-box">
+                <strong>Data:</strong> 30/06/2026 (Terça-feira)<br>
+                <strong>Horário:</strong> 12h00<br>
+                <strong>Local:</strong> Royal Tulip<br>
+                <strong>Endereço:</strong> Av. Dep. Jamel Cecílio, Qd. F41, Lt. 196 - St. Sul, Goiânia - GO
+            </div>
+
+            <form id="rsvp-form">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+                <label for="telefone">Telefone / WhatsApp</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(62) 99999-9999" required>
+
+                <button type="submit" class="btn" id="submit-btn">Confirmar Minha Presença</button>
+            </form>
+        </div>
+
+        <div id="success-block" class="success-box">
+            <h2>Presença Confirmada!</h2>
+            <p>Obrigado, <span id="guest-name" style="color: #fff; font-weight: bold;"></span>. Sua vaga exclusiva foi reservada com sucesso para o Almoço com CEO organizado pela VIDI.</p>
+
+            <div class="detalhes-box" style="text-align: center;">
+                <strong>Nos vemos lá!</strong><br>
+                30 de Junho às 12h00<br>
+                Royal Tulip, Goiânia - GO
+            </div>
+
+            <a href="" id="google-calendar-link" target="_blank" class="btn-agenda">
+                + Salvar na Agenda do Google
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const telInput = document.getElementById('telefone');
+        telInput.addEventListener('input', (e) => {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+        });
+
+        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const btnSubmit = document.getElementById('submit-btn');
+            const nomeValue = document.getElementById('nome').value;
+            const telefoneValue = document.getElementById('telefone').value;
+
+            btnSubmit.innerText = "Processando...";
+            btnSubmit.disabled = true;
+
+            const WEB_APP_URL = "PLACEHOLDER_URL";
+
+            fetch(WEB_APP_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nome: nomeValue,
+                    telefone: telefoneValue,
+                    sheet: "30/06"
+                })
+            })
+            .then(() => {
+                exibirSucesso(nomeValue);
+            })
+            .catch(error => {
+                console.error("Erro ao enviar:", error);
+                exibirSucesso(nomeValue);
+            });
+        });
+
+        function exibirSucesso(nome) {
+            document.getElementById('registration-block').style.display = 'none';
+            document.getElementById('success-block').style.display = 'block';
+            document.getElementById('guest-name').innerText = nome;
+
+            const eventTitle = encodeURIComponent("Almoço com CEO - VIDI");
+            const eventDates = "20260630T150000Z/20260630T173000Z"; // 12h00 BRT = 15h00 UTC
+            const eventDetails = encodeURIComponent("Almoço exclusivo de relacionamento, networking e troca de insights estratégicos entre lideranças.");
+            const eventLocation = encodeURIComponent("Royal Tulip - Goiânia - GO");
+
+            const calUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=${eventDates}&details=${eventDetails}&location=${eventLocation}&sf=true&output=xml`;
+
+            document.getElementById('google-calendar-link').href = calUrl;
+        }
+    </script>
+</body>
+</html>
